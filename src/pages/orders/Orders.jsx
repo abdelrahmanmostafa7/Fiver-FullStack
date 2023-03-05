@@ -1,9 +1,9 @@
 import React from 'react'
-import "./Order.scss"
-function Order() {
+import "./Orders.scss"
+function Orders() {
   return (
     <div>Order</div>
   )
 }
 
-export default Order
+export default Orders
