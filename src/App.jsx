@@ -1,7 +1,7 @@
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 import React from "react";
 import Navbar from "./components/navbar/Navbar";
-import Footer from "./components/footer/Footer";
+import Footer from "./components/Footer/Footer";
 import Home from "./pages/home/Home";
 import Gigs from "./pages/gigs/Gigs";
 import Gig from "./pages/gig/Gig";
@@ -21,6 +21,7 @@ function App() {
         <Navbar />
         <Outlet />
         <Footer />
+       
       </div>
     );
   };

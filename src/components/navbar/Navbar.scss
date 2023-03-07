@@ -7,6 +7,7 @@
     transition: 0.7 all ease;
     position: sticky;
     top: 0;
+    z-index: 999;
 
     &.active{
         background-color: white;
@@ -86,7 +87,7 @@
     hr{
         width: 100%;
         height: 0;
-        border: 0.5 solid lightgray;
+        border: 0.5px solid #ebe9e9;
     }
 
     .menu{
