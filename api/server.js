@@ -2,6 +2,10 @@
 import express from 'express'
 const app = express()
 
+// to import routers 
+import userRoute from './routers/user.route.js'
+
+
 // to connect to DB  and secure mongo connection in env file
 import mongoose from 'mongoose'
 import dotenv from 'dotenv'
@@ -16,7 +20,10 @@ const connect = async ()=>{
         }
 }
 
-console.log('test baransh');
+// create end point 
+app.use("/api/users", userRoute)
+
+
 
 // to app connect to port 
 app.listen(8800,()=>{
