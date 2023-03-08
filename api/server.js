@@ -4,6 +4,12 @@ const app = express()
 
 // to import routers 
 import userRoute from './routers/user.route.js'
+import userRoute from "./routes/user.route.js";
+import gigRoute from "./routes/gig.route.js";
+import orderRoute from "./routes/order.route.js";
+import conversationRoute from "./routes/conversation.route.js";
+import messageRoute from "./routes/message.route.js";
+import reviewRoute from "./routes/review.route.js";
 
 
 // to connect to DB  and secure mongo connection in env file
@@ -21,8 +27,12 @@ const connect = async ()=>{
 }
 
 // create end point 
-app.use("/api/users", userRoute)
-
+app.use("/api/users", userRoute);
+app.use("/api/gigs", gigRoute);
+app.use("/api/orders", orderRoute);
+app.use("/api/conversations", conversationRoute);
+app.use("/api/messages", messageRoute);
+app.use("/api/reviews", reviewRoute);
 
 
 // to app connect to port 
