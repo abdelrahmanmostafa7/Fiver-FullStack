@@ -3,7 +3,6 @@ import express from 'express'
 const app = express()
 
 // to import routers 
-import userRoute from './routers/user.route.js'
 import userRoute from "./routes/user.route.js";
 import gigRoute from "./routes/gig.route.js";
 import orderRoute from "./routes/order.route.js";
