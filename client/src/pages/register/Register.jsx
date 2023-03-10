@@ -1,6 +1,30 @@
-import React from 'react'
-
+import React, { useState } from 'react'
+import "./Register.scss"
 const Register = () => {
+  const[file,setFile]= useState(null)
+  const[user,setUser]= useState({ 
+    username:"",
+    email:"",
+    password:"",
+    img:"",
+    country:"",
+    isSeller:false,
+    desc:""})
+
+    console.log(user);
+    const handleChange= (e)=>{
+      setUser((prev)=>{
+        return {...prev, [e.target.name]:e.target.value}
+      })
+    }
+
+
+    const handleSeller= (e)=>{
+      setUser((prev)=>{
+        return {...prev, isSeller:e.target.checked}
+      })
+    }
+
   return (
     <div className="register">
     <form >
@@ -10,23 +34,23 @@ const Register = () => {
         <input
           name="username"
           type="text"
-          placeholder="johndoe"
+          onChange={handleChange}
         />
         <label htmlFor="">Email</label>
         <input
           name="email"
           type="email"
-          placeholder="email"
+          onChange={handleChange}
         />
         <label htmlFor="">Password</label>
-        <input name="password" type="password"  />
+        <input name="password" type="password" onChange={handleChange} />
         <label htmlFor="">Profile Picture</label>
-        <input type="file"  />
+        <input type="file"  onChange={(e)=>setFile(e.target.files[0])}/>
         <label htmlFor="">Country</label>
         <input
           name="country"
           type="text"
-          placeholder="Usa"
+          onChange={handleChange}
         />
         <button type="submit">Register</button>
       </div>
@@ -35,7 +59,7 @@ const Register = () => {
         <div className="toggle">
           <label htmlFor="">Activate the seller account</label>
           <label className="switch">
-            <input type="checkbox" />
+            <input type="checkbox" onChange={handleSeller} />
             <span className="slider round"></span>
           </label>
         </div>
@@ -43,7 +67,6 @@ const Register = () => {
         <input
           name="phone"
           type="text"
-          placeholder="+1 234 567 89"
         />
         <label htmlFor="">Description</label>
         <textarea
@@ -52,6 +75,7 @@ const Register = () => {
           id=""
           cols="30"
           rows="10"
+          onChange={handleChange}
         ></textarea>
       </div>
     </form>
