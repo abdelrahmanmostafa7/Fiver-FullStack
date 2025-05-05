@@ -13,6 +13,7 @@ import cors from "cors";
 
 
 const app = express();
+
 dotenv.config();
 mongoose.set("strictQuery", true);
 
@@ -45,6 +46,7 @@ app.use((err, req, res, next) => {
 
   return res.status(errorStatus).send(errorMessage);
 });
+
 
 app.listen(8800, () => {
   connect();

@@ -13,14 +13,22 @@ import Message from "./pages/message/Message";
 import MyGigs from "./pages/myGigs/MyGigs";
 import "./app.scss"
 import Login from "./pages/login/Login";
+import {
+  QueryClient,
+  QueryClientProvider,
+} from "@tanstack/react-query";
 
 function App() {
+  const queryClient = new QueryClient();
+
   const Layout = () => {
     return (
       <div className="app">
-        <Navbar />
-        <Outlet />
-        <Footer />
+       <QueryClientProvider client={queryClient}>
+          <Navbar />
+          <Outlet />
+          <Footer />
+        </QueryClientProvider>
        
       </div>
     );
@@ -67,11 +75,12 @@ function App() {
           path: "/login",
           element: <Login />,
         },
+        {
+          path: "/register",
+          element: <Register />,
+        },
+
       ],
-    },
-    {
-      path: "/register",
-      element: <Register />,
     },
   ]);
 

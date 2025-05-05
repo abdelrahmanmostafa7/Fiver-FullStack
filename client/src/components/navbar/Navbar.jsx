@@ -47,8 +47,8 @@ function Navbar() {
                 <span>Business</span>
                 <span>Explore</span>
                 <span>English</span>
-                <span>Sign in</span>
                 {!currentUser?.isSeller && <span>Become a Seller</span>}
+                <Link to="/login" className='link'>Sign in</Link>
                 {!currentUser && <button>Join</button>}
                 {currentUser && (
                     <div className="user" onClick={()=>setOpen(!open)}>

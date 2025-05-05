@@ -2,6 +2,7 @@ import React, { useRef, useState } from "react";
 import "./Gigs.scss";
 import { gigs } from "../../data";
 import GigCard from "../../components/gigCard/GigCard";
+import { useQuery } from "@tanstack/react-query";
 
 function Gigs() {
   const [sort, setSort] = useState("sales");
@@ -19,6 +20,17 @@ function Gigs() {
     console.log(maxRef.current.value)
   }
 
+   const { isLoading, error, data, refetch } = useQuery({
+    queryKey: ["gigs"],
+    queryFn: () =>
+      newRequest
+        .get(
+          `/gigs${search}&min=${minRef.current.value}&max=${maxRef.current.value}&sort=${sort}`
+        )
+        .then((res) => {
+          return res.data;
+        }),
+  });
   return (
     <div className="gigs">
       <div className="container">
